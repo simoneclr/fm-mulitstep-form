@@ -5,10 +5,6 @@ function App() {
   return (
     <main className="font-ubuntu h-screen bg-magnolia">
       <Container>
-        <h1>
-          FM Multistep Form
-        </h1>
-
         <PaymentPlanForm />
       </Container>      
     </main>

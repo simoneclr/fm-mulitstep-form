@@ -29,37 +29,39 @@ function PaymentPlanForm() {
 	}
 
 	return (
-		<MultiStepForm
-			renderFormIndex={(currentStep, totalSteps) => 
-				<PaymentFormIndex currentStep={currentStep} totalSteps={totalSteps}/>
-			}
+		<div>
+			<MultiStepForm
+				renderFormIndex={(currentStep, totalSteps) => 
+					<PaymentFormIndex currentStep={currentStep} totalSteps={totalSteps}/>
+				}
 
-			renderFormNavigation={(isFinalStep, prevStep) => 
-				<PaymentFormNavigation isFinalStep={isFinalStep} prevStep={prevStep}/>
-			}
+				renderFormNavigation={(isFinalStep, prevStep) => 
+					<PaymentFormNavigation isFinalStep={isFinalStep} prevStep={prevStep}/>
+				}
 
-			renderConfirmation={() => <div>Thank You!</div>}
-			
-			onSubmit={handleSubmit}
-		>
-			<input type="text" value={one} onChange={handleChangeOne} 
-				autoFocus className="p-2 border border-zinc-600"/>
+				renderConfirmation={() => <div>Thank You!</div>}
+				
+				onSubmit={handleSubmit}
+			>
+				<input type="text" value={one} onChange={handleChangeOne} 
+					autoFocus className="p-2 border border-zinc-600"/>
 
-			<input type="text" value={two} onChange={handleChangeTwo} 
-				autoFocus className="p-2 border border-zinc-600"/>
+				<input type="text" value={two} onChange={handleChangeTwo} 
+					autoFocus className="p-2 border border-zinc-600"/>
 
-			<input type="text" value={three} onChange={handleChangeThree} 
-				autoFocus className="p-2 border border-zinc-600"/>
+				<input type="text" value={three} onChange={handleChangeThree} 
+					autoFocus className="p-2 border border-zinc-600"/>
 
-			<div>
-				Summary:
-				<ul>
-					<li>{one}</li>
-					<li>{two}</li>
-					<li>{three}</li>
-				</ul>
-			</div>
-		</MultiStepForm>
+				<div>
+					Summary:
+					<ul>
+						<li>{one}</li>
+						<li>{two}</li>
+						<li>{three}</li>
+					</ul>
+				</div>
+			</MultiStepForm>
+		</div>
 	)
 }
 
