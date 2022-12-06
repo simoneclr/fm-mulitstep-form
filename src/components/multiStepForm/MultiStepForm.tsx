@@ -2,16 +2,20 @@ import React, { FormEvent, ReactNode } from "react"
 
 import useMultiStepForm from "./hooks/useMultiStepForm"
 
-import FormIndex from "./FormIndex"
-import FormNavigation from "./FormNavigation"
 import FormStep from "./FormStep"
 
 interface Props extends React.FormHTMLAttributes<HTMLFormElement> {
+	renderFormIndex: (currentStep: number, totalSteps: number) => JSX.Element;
+	renderFormNavigation: (isFinalStep: boolean, prevStep: () => void) => JSX.Element;
+	renderConfirmation: () => JSX.Element;
 	children: ReactNode;
 	onSubmit: React.FormEventHandler<HTMLFormElement>;
 }
 
-function MultiStepForm({children, onSubmit, ...rest}: Props) {
+function MultiStepForm({
+	renderFormIndex, renderFormNavigation, renderConfirmation, 
+	children, onSubmit, ...rest}: Props
+) {
 
 	const {
 		step,
@@ -28,19 +32,13 @@ function MultiStepForm({children, onSubmit, ...rest}: Props) {
 	}
 
 	return (
-		<div>
-			<FormIndex>
-				{React.Children.map(children, (child, i) => 
-					<FormIndex.Item index={i} active={step === i}/>
-				)}
-			</FormIndex>
+		<>
+			{renderFormIndex(step, React.Children.count(children))}
 
 			{
 				success ? 
 
-				<div>
-					Thank You!
-				</div>
+				renderConfirmation()
 
 				:
 
@@ -49,10 +47,10 @@ function MultiStepForm({children, onSubmit, ...rest}: Props) {
 						{React.Children.toArray(children)[step]}
 					</FormStep>
 						
-					<FormNavigation prevStep={prevStep}	isFinalStep={isFinalStep}/>
+					{renderFormNavigation(isFinalStep, prevStep)}
 				</form>
 			}			
-		</div>		
+		</>		
 	)
 }
 

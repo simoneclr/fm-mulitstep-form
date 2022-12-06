@@ -1,6 +1,8 @@
 import React, { SyntheticEvent, useState } from "react"
 
 import MultiStepForm from "../../components/multiStepForm/MultiStepForm"
+import PaymentFormIndex from "./PaymentFormIndex"
+import PaymentFormNavigation from "./PaymentFormNavigation"
 
 function PaymentPlanForm() {
 
@@ -27,15 +29,27 @@ function PaymentPlanForm() {
 	}
 
 	return (
-		<MultiStepForm onSubmit={handleSubmit}>
+		<MultiStepForm
+			renderFormIndex={(currentStep, totalSteps) => 
+				<PaymentFormIndex currentStep={currentStep} totalSteps={totalSteps}/>
+			}
+
+			renderFormNavigation={(isFinalStep, prevStep) => 
+				<PaymentFormNavigation isFinalStep={isFinalStep} prevStep={prevStep}/>
+			}
+
+			renderConfirmation={() => <div>Thank You!</div>}
+			
+			onSubmit={handleSubmit}
+		>
 			<input type="text" value={one} onChange={handleChangeOne} 
-				required autoFocus className="p-2 border border-zinc-600"/>
+				autoFocus className="p-2 border border-zinc-600"/>
 
 			<input type="text" value={two} onChange={handleChangeTwo} 
-				required autoFocus className="p-2 border border-zinc-600"/>
+				autoFocus className="p-2 border border-zinc-600"/>
 
 			<input type="text" value={three} onChange={handleChangeThree} 
-				required autoFocus className="p-2 border border-zinc-600"/>
+				autoFocus className="p-2 border border-zinc-600"/>
 
 			<div>
 				Summary:

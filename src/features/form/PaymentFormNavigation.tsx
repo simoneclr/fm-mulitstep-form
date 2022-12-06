@@ -3,7 +3,7 @@ interface Props {
 	prevStep: () => void;
 }
 
-function FormNavigation({isFinalStep, prevStep}: Props) {
+function PaymentFormNavigation({isFinalStep, prevStep}: Props) {
 	return (
 		<div className="flex justify-between items-center gap-8">
 			<button type="button" onClick={prevStep}>
@@ -17,4 +17,4 @@ function FormNavigation({isFinalStep, prevStep}: Props) {
 	)
 }
 
-export default FormNavigation
+export default PaymentFormNavigation
