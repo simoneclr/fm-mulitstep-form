@@ -1,5 +1,5 @@
 import Container from "./components/layout/Container";
-import PaymentPlanForm from "./features/form/PaymentPlanForm";
+import PaymentPlanForm from "./features/paymentPlanForm/PaymentPlanForm";
 
 function App() {
   return (
