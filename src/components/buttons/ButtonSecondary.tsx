@@ -1,13 +1,7 @@
-import { ReactNode } from "react"
-
-interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-	children: ReactNode;
-}
-
-function ButtonSecondary({children, className, ...nativeProps}: Props) {
+function ButtonSecondary(nativeProps: React.ButtonHTMLAttributes<HTMLButtonElement>) {
 	return (
 		<button className="text-cool-gray font-medium hover:text-marine-blue" {...nativeProps}>
-			{children}
+			{nativeProps.children}
 		</button>
 	)
 }
