@@ -19,7 +19,6 @@ function MultiStepForm({
 
 	const {
 		step,
-		isFinalStep,
 		success,
 		prevStep,
 		nextStep
