@@ -1,18 +1,33 @@
+import ButtonCTA from "../../components/buttons/ButtonCTA";
+import ButtonPrimary from "../../components/buttons/ButtonPrimary";
+import ButtonSecondary from "../../components/buttons/ButtonSecondary";
+
 interface Props {
-	isFinalStep: boolean;
+	currentStep: number;
+	totalSteps: number;
 	prevStep: () => void;
 }
 
-function PaymentFormNavigation({isFinalStep, prevStep}: Props) {
+function PaymentFormNavigation({currentStep, totalSteps, prevStep}: Props) {
 	return (
 		<div className="flex justify-between items-center gap-8">
-			<button type="button" onClick={prevStep}>
-				Go Back
-			</button>
+			{ currentStep > 0 &&
+				<ButtonSecondary type="button" onClick={prevStep}>
+					Go Back
+				</ButtonSecondary>
+			}
 
-			<button type="submit">
-				{isFinalStep ? "Confirm" : "Next step"}
-			</button>
+			{ currentStep === totalSteps - 1 ?
+				<ButtonCTA type="submit">
+					Confirm
+				</ButtonCTA>
+
+				:
+
+				<ButtonPrimary type="submit">
+					Next Step
+				</ButtonPrimary>
+			}
 		</div>
 	)
 }

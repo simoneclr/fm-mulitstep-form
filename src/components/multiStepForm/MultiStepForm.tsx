@@ -6,7 +6,7 @@ import FormStep from "./FormStep"
 
 interface Props extends React.FormHTMLAttributes<HTMLFormElement> {
 	renderFormIndex: (currentStep: number, totalSteps: number) => JSX.Element;
-	renderFormNavigation: (isFinalStep: boolean, prevStep: () => void) => JSX.Element;
+	renderFormNavigation: (currentStep: number, totalSteps: number, prevStep: () => void) => JSX.Element;
 	renderConfirmation: () => JSX.Element;
 	children: ReactNode;
 	onSubmit: React.FormEventHandler<HTMLFormElement>;
@@ -47,7 +47,7 @@ function MultiStepForm({
 						{React.Children.toArray(children)[step]}
 					</FormStep>
 						
-					{renderFormNavigation(isFinalStep, prevStep)}
+					{renderFormNavigation(step, React.Children.count(children), prevStep)}
 				</form>
 			}			
 		</>		

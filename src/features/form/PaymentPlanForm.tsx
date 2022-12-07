@@ -35,8 +35,8 @@ function PaymentPlanForm() {
 					<PaymentFormIndex currentStep={currentStep} totalSteps={totalSteps}/>
 				}
 
-				renderFormNavigation={(isFinalStep, prevStep) => 
-					<PaymentFormNavigation isFinalStep={isFinalStep} prevStep={prevStep}/>
+				renderFormNavigation={(currentStep, totalSteps, prevStep) => 
+					<PaymentFormNavigation currentStep={currentStep} totalSteps={totalSteps} prevStep={prevStep}/>
 				}
 
 				renderConfirmation={() => <div>Thank You!</div>}
