@@ -2,8 +2,6 @@ import React, { FormEvent, ReactNode } from "react"
 
 import useMultiStepForm from "./hooks/useMultiStepForm"
 
-import FormStep from "./FormStep"
-
 interface Props extends React.FormHTMLAttributes<HTMLFormElement> {
 	renderFormIndex: (currentStep: number, totalSteps: number) => JSX.Element;
 	renderFormNavigation: (currentStep: number, totalSteps: number, prevStep: () => void) => JSX.Element;
@@ -14,7 +12,7 @@ interface Props extends React.FormHTMLAttributes<HTMLFormElement> {
 
 function MultiStepForm({
 	renderFormIndex, renderFormNavigation, renderConfirmation, 
-	children, onSubmit, ...rest}: Props
+	children, className, onSubmit, ...rest}: Props
 ) {
 
 	const {
@@ -31,7 +29,7 @@ function MultiStepForm({
 	}
 
 	return (
-		<>
+		<div className={className}>
 			{renderFormIndex(step, React.Children.count(children))}
 
 			{
@@ -42,14 +40,12 @@ function MultiStepForm({
 				:
 
 				<form onSubmit={handleSubmit} {...rest}>
-					<FormStep>
-						{React.Children.toArray(children)[step]}
-					</FormStep>
+					{React.Children.toArray(children)[step]}
 						
 					{renderFormNavigation(step, React.Children.count(children), prevStep)}
 				</form>
 			}			
-		</>		
+		</div>		
 	)
 }
 

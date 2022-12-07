@@ -1,6 +1,7 @@
 import React, { SyntheticEvent, useState } from "react"
 
 import MultiStepForm from "../../components/multiStepForm/MultiStepForm"
+import PaymentFormConfirmationPage from "./PaymentFormConfirmationPage"
 import PaymentFormIndex from "./PaymentFormIndex"
 import PaymentFormNavigation from "./PaymentFormNavigation"
 
@@ -29,39 +30,37 @@ function PaymentPlanForm() {
 	}
 
 	return (
-		<div>
-			<MultiStepForm
-				renderFormIndex={(currentStep, totalSteps) => 
-					<PaymentFormIndex currentStep={currentStep} totalSteps={totalSteps}/>
-				}
+		<MultiStepForm className="bg-white p-6 w-full rounded-lg"
+			renderFormIndex={(currentStep, totalSteps) => 
+				<PaymentFormIndex currentStep={currentStep} totalSteps={totalSteps}/>
+			}
 
-				renderFormNavigation={(currentStep, totalSteps, prevStep) => 
-					<PaymentFormNavigation currentStep={currentStep} totalSteps={totalSteps} prevStep={prevStep}/>
-				}
+			renderFormNavigation={(currentStep, totalSteps, prevStep) => 
+				<PaymentFormNavigation currentStep={currentStep} totalSteps={totalSteps} prevStep={prevStep}/>
+			}
 
-				renderConfirmation={() => <div>Thank You!</div>}
-				
-				onSubmit={handleSubmit}
-			>
-				<input type="text" value={one} onChange={handleChangeOne} 
-					autoFocus className="p-2 border border-zinc-600"/>
+			renderConfirmation={() => <PaymentFormConfirmationPage/>}
+			
+			onSubmit={handleSubmit}
+		>
+			<input type="text" value={one} onChange={handleChangeOne} 
+				autoFocus className="p-2 border border-zinc-600"/>
 
-				<input type="text" value={two} onChange={handleChangeTwo} 
-					autoFocus className="p-2 border border-zinc-600"/>
+			<input type="text" value={two} onChange={handleChangeTwo} 
+				autoFocus className="p-2 border border-zinc-600"/>
 
-				<input type="text" value={three} onChange={handleChangeThree} 
-					autoFocus className="p-2 border border-zinc-600"/>
+			<input type="text" value={three} onChange={handleChangeThree} 
+				autoFocus className="p-2 border border-zinc-600"/>
 
-				<div>
-					Summary:
-					<ul>
-						<li>{one}</li>
-						<li>{two}</li>
-						<li>{three}</li>
-					</ul>
-				</div>
-			</MultiStepForm>
-		</div>
+			<div>
+				Summary:
+				<ul>
+					<li>{one}</li>
+					<li>{two}</li>
+					<li>{three}</li>
+				</ul>
+			</div>
+		</MultiStepForm>
 	)
 }
 
