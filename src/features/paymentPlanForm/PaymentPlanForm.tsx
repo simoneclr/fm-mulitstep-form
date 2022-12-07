@@ -4,16 +4,12 @@ import MultiStepForm from "../../components/multiStepForm/MultiStepForm"
 import PaymentFormConfirmationPage from "./PaymentFormConfirmationPage"
 import PaymentFormIndex from "./PaymentFormIndex"
 import PaymentFormNavigation from "./PaymentFormNavigation"
+import PersonalInfoFormStep from "./steps/personalInfo/PersonalInfoFormStep"
 
 function PaymentPlanForm() {
 
-	const [one, setOne] = useState("")
 	const [two, setTwo] = useState("")
 	const [three, setThree] = useState("")
-
-	const handleChangeOne = (e: React.ChangeEvent<HTMLInputElement>) => {
-		setOne(e.target.value)
-	}
 
 	const handleChangeTwo = (e: React.ChangeEvent<HTMLInputElement>) => {
 		setTwo(e.target.value)
@@ -26,7 +22,7 @@ function PaymentPlanForm() {
 	const handleSubmit = (e: SyntheticEvent) => {
 		e.preventDefault()
 
-		alert(`${one} ${two} ${three}`)
+		alert(`${two} ${three}`)
 	}
 
 	return (
@@ -43,8 +39,7 @@ function PaymentPlanForm() {
 			
 			onSubmit={handleSubmit}
 		>
-			<input type="text" value={one} onChange={handleChangeOne} 
-				autoFocus className="p-2 border border-zinc-600"/>
+			<PersonalInfoFormStep/>
 
 			<input type="text" value={two} onChange={handleChangeTwo} 
 				autoFocus className="p-2 border border-zinc-600"/>
@@ -55,7 +50,6 @@ function PaymentPlanForm() {
 			<div>
 				Summary:
 				<ul>
-					<li>{one}</li>
 					<li>{two}</li>
 					<li>{three}</li>
 				</ul>
