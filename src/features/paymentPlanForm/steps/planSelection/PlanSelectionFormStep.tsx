@@ -4,6 +4,7 @@ import { ReactComponent as IconPro } from "../../../../assets/images/icon-pro.sv
 
 import PaymentFormStepTitle from "../../styles/PaymentFormStepTitle"
 import RadioButtonCard from "../../../../components/inputs/RadioButtonCard"
+import LabelledToggle from "../../../../components/inputs/LabelledToggle"
 
 enum PLAN_RADIO_VALUES {
 	arcade = "PLAN_RADIO_ARCADE",
@@ -49,6 +50,8 @@ function PlanSelectionFormStep() {
 					description="$15/mo"
 				/>
 			</div>
+
+			<LabelledToggle labelUnchecked="Monthly" labelChecked="Yearly"/>
 		</div>
 	)
 }
