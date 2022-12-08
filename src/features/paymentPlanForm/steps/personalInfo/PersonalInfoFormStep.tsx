@@ -4,7 +4,6 @@ import PaymentFormStepTitle from "../../styles/PaymentFormStepTitle"
 function PersonalInfoFormStep() {
 	return (
 		<div className="flex flex-col items-stretch gap-4">
-
 			<div>
 				<PaymentFormStepTitle>
 					Personal Info
