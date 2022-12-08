@@ -5,9 +5,6 @@ interface Props {
 }
 
 function PaymentFormIndexItem({index, title, isActive}: Props) {
-
-	console.log(index, isActive)
-
 	return (
 		<li>
 			<span className={`
