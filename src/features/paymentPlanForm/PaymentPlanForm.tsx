@@ -1,4 +1,4 @@
-import React, { SyntheticEvent, useState } from "react"
+import { SyntheticEvent } from "react"
 
 import MultiStepForm from "../../components/multiStepForm/MultiStepForm"
 import PaymentFormConfirmationPage from "./PaymentFormConfirmationPage"
@@ -7,19 +7,11 @@ import PaymentFormNavigation from "./PaymentFormNavigation"
 
 import PersonalInfoFormStep from "./steps/personalInfo/PersonalInfoFormStep"
 import PlanSelectionFormStep from "./steps/planSelection/PlanSelectionFormStep"
+import AddOnsSelectionStep from "./steps/addOnsSelection/AddOnsSelectionStep"
 
 function PaymentPlanForm() {
-
-	const [three, setThree] = useState("")
-
-	const handleChangeThree = (e: React.ChangeEvent<HTMLInputElement>) => {
-		setThree(e.target.value)
-	}
-
 	const handleSubmit = (e: SyntheticEvent) => {
 		e.preventDefault()
-
-		alert(`${three}`)
 	}
 
 	return (
@@ -37,18 +29,14 @@ function PaymentPlanForm() {
 			onSubmit={handleSubmit}
 		>
 			
-			{/* <PersonalInfoFormStep/> */}
+			<PersonalInfoFormStep/>
 
 			<PlanSelectionFormStep/>
 
-			<input type="text" value={three} onChange={handleChangeThree} 
-				autoFocus className="p-2 border border-zinc-600"/>
+			<AddOnsSelectionStep/>
 
 			<div>
 				Summary:
-				<ul>
-					<li>{three}</li>
-				</ul>
 			</div>
 		</MultiStepForm>
 	)
