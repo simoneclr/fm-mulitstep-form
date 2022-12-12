@@ -11,7 +11,7 @@ function PaymentFormIndex({currentStep, totalSteps}: Props) {
 
 	return (
 		<div className="bg-sidebar-mobile 
-			absolute inset-x-0 top-0 h-36 -z-10 flex flex-col items-center
+			absolute inset-x-0 top-0 h-40 -z-10 flex flex-col items-center
 		">
 			<ul className="py-8 flex items-center gap-4">
 				{steps.map(step => 
