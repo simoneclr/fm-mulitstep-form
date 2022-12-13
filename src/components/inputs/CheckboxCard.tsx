@@ -21,7 +21,10 @@ function CheckboxCard({title, description, price, ...nativeCheckboxProps}: Props
 				peer-checked:border-indigo-800 peer-checked:bg-alabaster stroke-transparent peer-checked:stroke-white
 			">
 
-				<div className="h-5 w-5 bg-purplish-blue rounded grid place-items-center">
+				<div className={`
+					h-5 w-5 border rounded grid place-items-center
+					${nativeCheckboxProps.checked ? "bg-purplish-blue border-purplish-blue" : "border-cool-gray"}
+				`}>
 					<IconCheckmark className="stroke-inherit"/>
 				</div>
 
