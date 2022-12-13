@@ -1,18 +1,13 @@
 import CheckboxCard from "../../../../components/inputs/CheckboxCard";
-import PaymentFormStepTitle from "../../styles/PaymentFormStepTitle";
+import PaymentFormStepHeader from "../../styles/PaymentFormStepHeader";
 
 function AddOnsSelectionStep() {
 	return (
 		<div className="flex flex-col gap-4">
-			<div>
-				<PaymentFormStepTitle>
-					Pick add-ons
-				</PaymentFormStepTitle>
-
-				<p className="text-cool-gray mt-1">
-					Add-ons help enhance your gaming experience.
-				</p>
-			</div>
+			<PaymentFormStepHeader
+				title="Pick add-ons"
+				subtitle="Add-ons help enhance your gaming experience."
+			/>
 
 			<CheckboxCard title="Online Service" description="Access to multiplayer games" price="+1$/mo"/>
 

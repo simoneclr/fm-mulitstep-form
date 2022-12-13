@@ -1,18 +1,13 @@
 import LabelledInputField from "../../../../components/inputs/LabelledInputField"
-import PaymentFormStepTitle from "../../styles/PaymentFormStepTitle"
+import PaymentFormStepHeader from "../../styles/PaymentFormStepHeader"
 
 function PersonalInfoFormStep() {
 	return (
 		<div className="flex flex-col items-stretch gap-4">
-			<div>
-				<PaymentFormStepTitle>
-					Personal Info
-				</PaymentFormStepTitle>
-
-				<p className="text-cool-gray mt-1">
-					Please provide your name, email address, and phone number.
-				</p>
-			</div>
+			<PaymentFormStepHeader
+				title="Personal Info"
+				subtitle="Please provide your name, email address, and phone number."
+			/>
 
 			<LabelledInputField 
 				labelText="Name"

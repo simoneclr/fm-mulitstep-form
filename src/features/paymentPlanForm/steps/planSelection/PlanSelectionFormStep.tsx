@@ -2,7 +2,7 @@ import { ReactComponent as IconArcade } from "../../../../assets/images/icon-arc
 import { ReactComponent as IconAdvanced } from "../../../../assets/images/icon-advanced.svg"
 import { ReactComponent as IconPro } from "../../../../assets/images/icon-pro.svg"
 
-import PaymentFormStepTitle from "../../styles/PaymentFormStepTitle"
+import PaymentFormStepHeader from "../../styles/PaymentFormStepHeader"
 import RadioButtonCard from "../../../../components/inputs/RadioButtonCard"
 import LabelledToggle from "../../../../components/inputs/LabelledToggle"
 
@@ -15,15 +15,10 @@ enum PLAN_RADIO_VALUES {
 function PlanSelectionFormStep() {
 	return (
 		<div className="flex flex-col gap-4">
-			<div>
-				<PaymentFormStepTitle>
-					Select your plan
-				</PaymentFormStepTitle>
-
-				<p className="text-cool-gray mt-1">
-					You have the option of monthly or yearly billing.
-				</p>
-			</div>
+			<PaymentFormStepHeader
+				title="Select your plan"
+				subtitle="You have the option of monthly or yearly billing."
+			/>
 
 			<div className="flex flex-col gap-3">
 				<RadioButtonCard
