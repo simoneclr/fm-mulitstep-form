@@ -1,9 +1,9 @@
 import React from "react";
 
-import { ValidatedFieldController } from "../../../../hooks/useValidatedInputField"
+import { ValidatedFieldController } from "../../../hooks/useValidatedInputField"
 
-import LabelledInputField from "../../../../components/inputs/LabelledInputField"
-import PaymentFormStepHeader from "../../styles/PaymentFormStepHeader"
+import LabelledInputField from "../../../components/inputs/LabelledInputField"
+import PaymentFormStepHeader from "../styles/PaymentFormStepHeader"
 
 interface Props {
 	nameController: ValidatedFieldController<string>;

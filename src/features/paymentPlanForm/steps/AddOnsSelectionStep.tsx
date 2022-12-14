@@ -1,5 +1,5 @@
-import CheckboxCard from "../../../../components/inputs/CheckboxCard";
-import PaymentFormStepHeader from "../../styles/PaymentFormStepHeader";
+import CheckboxCard from "../../../components/inputs/CheckboxCard";
+import PaymentFormStepHeader from "../styles/PaymentFormStepHeader";
 
 function AddOnsSelectionStep() {
 	return (

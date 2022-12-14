@@ -12,9 +12,9 @@ import PaymentFormConfirmationPage from "./PaymentFormConfirmationPage"
 import PaymentFormIndex from "./PaymentFormIndex"
 import PaymentFormNavigation from "./PaymentFormNavigation"
 
-import PersonalInfoFormStep from "./steps/personalInfo/PersonalInfoFormStep"
-import PlanSelectionFormStep from "./steps/planSelection/PlanSelectionFormStep"
-import AddOnsSelectionStep from "./steps/addOnsSelection/AddOnsSelectionStep"
+import PersonalInfoFormStep from "./steps/PersonalInfoFormStep"
+import PlanSelectionFormStep from "./steps/PlanSelectionFormStep"
+import AddOnsSelectionStep from "./steps/AddOnsSelectionStep"
 
 import { mockValidate } from "./validation/mockValidation"
 

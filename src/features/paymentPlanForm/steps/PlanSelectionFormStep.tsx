@@ -1,18 +1,18 @@
 import React from "react"
 
-import { ReactComponent as IconArcade } from "../../../../assets/images/icon-arcade.svg"
-import { ReactComponent as IconAdvanced } from "../../../../assets/images/icon-advanced.svg"
-import { ReactComponent as IconPro } from "../../../../assets/images/icon-pro.svg"
+import { ReactComponent as IconArcade } from "../../../assets/images/icon-arcade.svg"
+import { ReactComponent as IconAdvanced } from "../../../assets/images/icon-advanced.svg"
+import { ReactComponent as IconPro } from "../../../assets/images/icon-pro.svg"
 
-import PlanOptions from "../../types/planOptions.enum"
-import BillingOptions from "../../types/billingOptions.enum"
+import PlanOptions from "../types/planOptions.enum"
+import BillingOptions from "../types/billingOptions.enum"
 
-import { RadioGroupController } from "../../../../hooks/useRadioGroup"
-import { ToggleController } from "../../../../hooks/useToggle"
+import { RadioGroupController } from "../../../hooks/useRadioGroup"
+import { ToggleController } from "../../../hooks/useToggle"
 
-import PaymentFormStepHeader from "../../styles/PaymentFormStepHeader"
-import RadioButtonCard from "../../../../components/inputs/RadioButtonCard"
-import LabelledToggle from "../../../../components/inputs/LabelledToggle"
+import PaymentFormStepHeader from "../styles/PaymentFormStepHeader"
+import RadioButtonCard from "../../../components/inputs/RadioButtonCard"
+import LabelledToggle from "../../../components/inputs/LabelledToggle"
 
 interface Props {
 	planController: RadioGroupController<PlanOptions>;
