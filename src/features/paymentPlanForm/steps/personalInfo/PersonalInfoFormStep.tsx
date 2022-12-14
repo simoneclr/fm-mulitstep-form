@@ -1,7 +1,30 @@
+import React from "react";
+
+import { ValidatedFieldController } from "../../../../hooks/useValidatedInputField"
+
 import LabelledInputField from "../../../../components/inputs/LabelledInputField"
 import PaymentFormStepHeader from "../../styles/PaymentFormStepHeader"
 
-function PersonalInfoFormStep() {
+interface Props {
+	nameController: ValidatedFieldController<string>;
+	emailController: ValidatedFieldController<string>;
+	phoneController: ValidatedFieldController<string>;
+}
+
+function PersonalInfoFormStep({nameController, emailController, phoneController}: Props) {
+
+	const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+		nameController.setValue(e.target.value)
+	}
+
+	const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+		emailController.setValue(e.target.value)
+	}
+
+	const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+		phoneController.setValue(e.target.value)
+	}
+
 	return (
 		<div className="flex flex-col items-stretch gap-4">
 			<PaymentFormStepHeader
@@ -9,7 +32,10 @@ function PersonalInfoFormStep() {
 				subtitle="Please provide your name, email address, and phone number."
 			/>
 
-			<LabelledInputField 
+			<LabelledInputField
+				value={nameController.value}
+				onChange={handleNameChange}
+				onBlur={nameController.performValidation}
 				labelText="Name"
 				type="text"
 				id="name"
@@ -19,6 +45,9 @@ function PersonalInfoFormStep() {
 			/>
 
 			<LabelledInputField
+				value={emailController.value}
+				onChange={handleEmailChange}
+				onBlur={emailController.performValidation}
 				labelText="Email Address"
 				type="email"
 				id="email-address"
@@ -27,6 +56,9 @@ function PersonalInfoFormStep() {
 			/>
 
 			<LabelledInputField
+				value={phoneController.value}
+				onChange={handlePhoneChange}
+				onBlur={phoneController.performValidation}
 				labelText="Phone Number"
 				type="tel"
 				id="phone-number"
